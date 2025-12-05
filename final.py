@@ -52,7 +52,7 @@ except FileNotFoundError:
 
 # Cấu hình Admin Smart Server (từ adminkvo.py)
 SS_ADMIN_ACCOUNT = "kvocloud@gmail.com/Tungvu@23" # ⚠️ THAY BẰNG TÀI KHOẢN ADMIN THẬT CỦA BẠN 
-TARGET_CHAT_ID = 7365030386 # ✅ CHAT ID ĐÃ ĐƯỢC XÁC NHẬN
+TARGET_CHAT_ID = 7267690782 # ✅ CHAT ID ĐÃ ĐƯỢC XÁC NHẬN
 AGENCY_NAME = "kvocloud" 
 AGENCY_EMAIL = "kvocloud@gmail.com" 
 
@@ -947,7 +947,7 @@ def main() -> None:
         # Nếu bot vẫn chạy với cấu hình mặc định này, vui lòng đảm bảo bạn đã thay TOKEN và ACCOUNT trước khi deploy.
         # return
 
-    application = Application.builder().token(BOT_TOKEN).build()
+    application = Application.builder().token(BOT_TOKEN).request_kwargs({'read_timeout': 30, 'connect_timeout': 10}).build()
 
     # ====================================================================
     # 1. CONVERSATION HANDLERS (TỪ tool.py)
@@ -1073,4 +1073,5 @@ def main() -> None:
 
 
 if __name__ == "__main__":
+
     main()
